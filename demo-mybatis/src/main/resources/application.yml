@@ -6,4 +6,5 @@ spring:
     url: jdbc:mysql://monster.red/test
     username: root
     password: root
-    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: "classpath*:mapper/**/*Mapper.xml"

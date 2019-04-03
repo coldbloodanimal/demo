@@ -11,6 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>demo-mybatis</artifactId>
     <name>demo-mybatis</name>
+    <packaging>jar</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>
