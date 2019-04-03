@@ -1,0 +1,9 @@
+#  https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+#  https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter  阿里druid用法
+#  http://druid.io/ 这是官网吗
+spring:
+  datasource:
+    url: jdbc:mysql://monster.red/test
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
