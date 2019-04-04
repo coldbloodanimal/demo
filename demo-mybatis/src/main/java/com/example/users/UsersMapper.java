@@ -1,6 +1,5 @@
 package com.example.users;
 
-import com.example.users.Users;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,0 +1,7 @@
+package com.example.oss;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class OssService {
+}

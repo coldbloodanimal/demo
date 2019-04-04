@@ -6,5 +6,26 @@ spring:
     url: jdbc:mysql://monster.red/test
     username: root
     password: root
+#    https://github.com/alibaba/druid/blob/master/druid-spring-boot-starter/README.md
+#    例子
+    druid:
+#      https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatViewServlet%E9%85%8D%E7%BD%AE
+#      这个StatViewServlet的用途包括：
+#      提供监控信息展示的html页面
+#      提供监控信息的JSON API
+#      访问http://127.0.0.1:8080/druid
+      stat-view-servlet:
+        enabled: true
+        login-username: druid
+        login-password: druid
+#  https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_%E9%85%8D%E7%BD%AEWebStatFilter
+#  WebStatFilter用于采集web-jdbc关联监控的数据。
+      web-stat-filter:
+        enabled: true
+#        https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+#        Druid内置提供一个StatFilter，用于统计监控信息。
+      filter:
+        stat:
+          enabled: true
 mybatis:
   mapper-locations: "classpath*:mapper/**/*Mapper.xml"

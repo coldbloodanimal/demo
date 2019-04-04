@@ -21,6 +21,7 @@
 
     <modules>
         <module>demo-mybatis</module>
+        <module>demo-java-base</module>
     </modules>
 
     <dependencies>
