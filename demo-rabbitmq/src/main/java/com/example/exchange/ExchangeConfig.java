@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.hello;
+package com.example.exchange;
 
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -25,23 +25,42 @@ import org.springframework.context.annotation.Profile;
  * @author Scott Deeg
  * @author Wayne Lund
  */
-@Profile("hello")
+@Profile("exchange")
 @Configuration
-public class HelloConfig {
-
+public class ExchangeConfig {
 	@Bean
-	public Queue hello() {
-		return new Queue("hello");
+	public FanoutExchange fanoutExchange() {
+		return new FanoutExchange("publish-subscribe");
 	}
 
 	@Bean
-	public HelloReceiver receiver() {
-		return new HelloReceiver();
+	public Queue autoDeleteQueue1() {
+		return new AnonymousQueue();
 	}
 
 	@Bean
-	public HelloSender sender() {
-		return new HelloSender();
+	public Queue autoDeleteQueue2() {
+		return new AnonymousQueue();
+	}
+
+	@Bean
+	public Binding binding1(FanoutExchange fanout, Queue autoDeleteQueue1) {
+		return BindingBuilder.bind(autoDeleteQueue1).to(fanout);
+	}
+
+	@Bean
+	public Binding binding2(FanoutExchange fanout, Queue autoDeleteQueue2) {
+		return BindingBuilder.bind(autoDeleteQueue2).to(fanout);
+	}
+
+	@Bean
+	public ExchangeSender sender() {
+		return new ExchangeSender();
+	}
+
+	@Bean
+	public ExchangeReceiver receiver() {
+		return new ExchangeReceiver();
 	}
 
 }

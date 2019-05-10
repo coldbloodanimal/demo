@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.hello;
+package com.example.work;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
@@ -25,23 +25,28 @@ import org.springframework.context.annotation.Profile;
  * @author Scott Deeg
  * @author Wayne Lund
  */
-@Profile("hello")
+@Profile("work")
 @Configuration
-public class HelloConfig {
+public class WorkConfig {
 
 	@Bean
-	public Queue hello() {
-		return new Queue("hello");
+	public Queue work() {
+		return new Queue("work");
 	}
 
 	@Bean
-	public HelloReceiver receiver() {
-		return new HelloReceiver();
+	public WorkReceiver receiver() {
+		return new WorkReceiver(1);
 	}
 
 	@Bean
-	public HelloSender sender() {
-		return new HelloSender();
+	public WorkReceiver receiver2() {
+		return new WorkReceiver(2);
+	}
+
+	@Bean
+	public WorkSender sender() {
+		return new WorkSender();
 	}
 
 }

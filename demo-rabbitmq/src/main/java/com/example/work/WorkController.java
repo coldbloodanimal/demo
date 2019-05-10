@@ -1,8 +1,7 @@
-package com.example.hello;
+package com.example.work;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: Monster
  * @date: 2019-05-07 13:41
  **/
-@Profile("hello")
+@Profile("work")
 @RestController
-public class HelloController {
+public class WorkController {
 
     @Autowired
-    HelloSender sender;
+    WorkSender sender;
 
-    @RequestMapping(value="hello/send",method= RequestMethod.GET)
+    @RequestMapping(value="work/send",method= RequestMethod.GET)
     public void send(@RequestParam(name="message")String message){
          sender.send(message);
     }
