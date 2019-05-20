@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: hello
+  #    active: routing
+
+    #    第三课
+    #   active: exchange
+    #    第二课
+    #   active: work
+    #    第一课
+    #    active: hello
