@@ -79,4 +79,7 @@
       create_date = #{createDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="selectPage"  resultType="com.example.users.Users">
+    select * from users
+  </select>
 </mapper>

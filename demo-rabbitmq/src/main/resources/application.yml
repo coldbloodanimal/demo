@@ -1,6 +1,14 @@
 spring:
   profiles:
-    active: hello
+    active: topic
+  #    第六课
+#    active: rpc
+
+
+#    第五课
+#    active: topic
+
+#    第四课
   #    active: routing
 
     #    第三课
