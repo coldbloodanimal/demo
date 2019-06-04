@@ -1,7 +1,5 @@
 package com.example.users;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +13,7 @@ public class UsersService {
         return mapper.selectByPrimaryKey(id);
     }
 
-    IPage<Users> selectPage(Page page, Users record) {
+/*    IPage<Users> selectPage(Page page, Users record) {
         return mapper.selectPage(page,record);
-    }
+    }*/
 }
