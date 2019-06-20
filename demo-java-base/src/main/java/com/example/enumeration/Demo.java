@@ -4,9 +4,19 @@ import static com.example.enumeration.PeopleType.BADPEOPLE;
 
 public class Demo {
     public static void main(String[] args) {
-        go1();
+        compare();
 
     }
+
+    public static void compare(){
+        SexEnum sexEnum=SexEnum.getByKey(1);
+        if(sexEnum==SexEnum.MAN){
+            System.out.print(sexEnum.getValue());
+        };
+        System.out.print(SexEnum.MAN.equals(SexEnum.WOMAN));
+
+    };
+
 
     public static void go1(){
         PeopleType.valueOf("GOODPEOPLE");
