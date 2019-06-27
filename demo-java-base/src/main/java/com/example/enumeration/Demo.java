@@ -4,7 +4,7 @@ import static com.example.enumeration.PeopleType.BADPEOPLE;
 
 public class Demo {
     public static void main(String[] args) {
-        compare();
+        go1();
 
     }
 
@@ -19,9 +19,14 @@ public class Demo {
 
 
     public static void go1(){
-        PeopleType.valueOf("GOODPEOPLE");
-        PeopleType.valueOf("");
-        System.out.println(1);
+        PeopleType p1=PeopleType.valueOf("GOODPEOPLE");
+        System.out.println(p1);
+        PeopleType p2=PeopleType.valueOf("GOOD_PEOPLE");
+        System.out.println(p2);
+        PeopleType p3=PeopleType.valueOf("");
+        System.out.println(p1);
+        System.out.println(p2);
+        System.out.println(p3);
     }
 
     public static void go(){

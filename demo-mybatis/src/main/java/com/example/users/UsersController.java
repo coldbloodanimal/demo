@@ -14,14 +14,15 @@ public class UsersController {
     @Autowired
     UsersService service;
 
-    @RequestMapping(value="/user/selectById",method= RequestMethod.GET)
-    public Users selectByPrimaryKey(@RequestParam(name="id")String id){
+    @RequestMapping(value = "/user/selectById", method = RequestMethod.GET)
+    public Users selectByPrimaryKey(@RequestParam(name = "id") String id) {
         return service.selectByPrimaryKey(id);
     }
 
-    @RequestMapping(value="/hello",method= RequestMethod.GET)
-    public void hello(){
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello() {
         Logger.getAnonymousLogger().info("hello");
+        return "hello";
     }
 
 //    @RequestMapping(value="/user/selectPage",method= RequestMethod.GET)

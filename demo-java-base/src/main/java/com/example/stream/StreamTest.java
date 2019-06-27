@@ -18,4 +18,8 @@ public class StreamTest {
         });
 
     }
+
+    public static void listToSet(List<Dog> dogs){
+
+    }
 }

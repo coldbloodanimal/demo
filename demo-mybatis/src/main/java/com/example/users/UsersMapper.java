@@ -18,5 +18,5 @@ public interface UsersMapper {
 
 //    IPage<User> selectPageVo(Page page, @Param("state") Integer state);
 
-/*    IPage<Users> selectPage(Page page, Users record);*/
+    /*    IPage<Users> selectPage(Page page, Users record);*/
 }
