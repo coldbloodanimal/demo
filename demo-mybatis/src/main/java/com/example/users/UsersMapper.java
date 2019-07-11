@@ -2,6 +2,8 @@ package com.example.users;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface UsersMapper {
     int deleteByPrimaryKey(String id);
@@ -15,6 +17,8 @@ public interface UsersMapper {
     int updateByPrimaryKeySelective(Users record);
 
     int updateByPrimaryKey(Users record);
+
+    List<Users> selectByCondition(UserCriteriaModel criteria);
 
 //    IPage<User> selectPageVo(Page page, @Param("state") Integer state);
 

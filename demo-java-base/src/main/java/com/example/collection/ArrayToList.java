@@ -10,5 +10,12 @@ public class ArrayToList {
     public static void main(String[] args) {
         int[] a=new int[]{1, 2, 3};
         Arrays.asList(a);
+
+        int i=1;
+        for (int i1 : a) {
+            System.out.println(i++);
+        }
+
+
     }
 }

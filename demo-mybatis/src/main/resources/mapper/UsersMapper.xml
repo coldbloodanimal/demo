@@ -82,4 +82,25 @@
     <select id="selectPage" resultType="com.example.users.Users">
         select * from users
     </select>
+    <select id="selectByCondition" resultType="com.example.users.Users" parameterType="com.example.users.UserCriteriaModel">
+        select * from users
+        <where>
+            <if test="username!=null and username !=''">
+                username=#{username}
+            </if>
+            <if test="startTime!=null">
+                and #{startTime} <![CDATA[<]]> create_date
+            </if>
+            <if test="startTime!=null">
+                and create_date <![CDATA[<]]> #{endTime}
+            </if>
+
+                and status in
+                <foreach item="item" index="index" collection="status"
+                         open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+
+        </where>
+    </select>
 </mapper>

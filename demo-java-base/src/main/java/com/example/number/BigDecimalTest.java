@@ -11,7 +11,10 @@ import java.util.List;
  **/
 public class BigDecimalTest {
     public static void main(String[] args) {
-        compare();
+        BigDecimal bigDecimal=null;
+        System.out.println(bigDecimal);
+
+
     }
 
 

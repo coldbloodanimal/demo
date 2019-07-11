@@ -9,7 +9,7 @@ import java.util.List;
  **/
 public class ArrayListTest {
     public static void main(String[] args) {
-        List<Integer> list=new ArrayList<Integer>(10);
+        List<Integer> list=new ArrayList(10);
         list.add(8);
         list.add(7,6);
         for (int i = 0; i < list.size(); i++) {
