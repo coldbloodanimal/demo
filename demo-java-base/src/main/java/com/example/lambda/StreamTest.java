@@ -1,4 +1,4 @@
-package com.example.stream;
+package com.example.lambda;
 
 import com.example.animal.AminalUtil;
 import com.example.animal.Dog;

@@ -2,6 +2,7 @@ package com.example.animal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author: Monster
@@ -37,5 +38,9 @@ public class AminalUtil {
             dogs.add(dog);
         }
         return dogs;
+    }
+
+    public static String getDogName(Dog dog){
+        return Optional.ofNullable(dog).map(t->t.getName()).orElse("lala");
     }
 }

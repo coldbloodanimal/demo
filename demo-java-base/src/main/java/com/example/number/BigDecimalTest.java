@@ -11,10 +11,18 @@ import java.util.List;
  **/
 public class BigDecimalTest {
     public static void main(String[] args) {
-        BigDecimal bigDecimal=null;
-        System.out.println(bigDecimal);
+
+        System.out.println(BigDecimal.TEN.add(new BigDecimal(5)).multiply(new BigDecimal(2)));
 
 
+
+
+    }
+
+    public static void test(){
+        BigDecimal bigDecimal=BigDecimal.ONE;
+        bigDecimal=bigDecimal.add(BigDecimal.TEN);
+        System.out.println(BigDecimal.ZERO.compareTo(null));
     }
 
 
@@ -43,4 +51,21 @@ public class BigDecimalTest {
         BigDecimal b=new BigDecimal(1.34);
         System.out.print(a.compareTo(b));
     }
+
+    public static void freight(){
+        //总运费
+        BigDecimal totalFreight=new BigDecimal(0.5);
+        //商品总价
+        BigDecimal totalPrice=new BigDecimal(0.04);
+        //商品1价格
+        BigDecimal singlePrice=new BigDecimal(0.01);
+        //商品2价格
+        BigDecimal singlePrice2=new BigDecimal(0.03);
+        BigDecimal singleFreight=singlePrice.multiply(totalFreight).divide(totalPrice,2,BigDecimal.ROUND_HALF_UP);
+        BigDecimal singleFreight2=singlePrice2.multiply(totalFreight).divide(totalPrice,2,BigDecimal.ROUND_HALF_UP);
+        System.out.println(singleFreight.toString());
+        System.out.println(singleFreight2.toString());
+
+    }
+
 }

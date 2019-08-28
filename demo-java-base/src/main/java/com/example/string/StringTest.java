@@ -6,7 +6,9 @@ package com.example.string;
  **/
 public class StringTest {
     public static void main(String[] args) {
-        do13();
+        String a;
+       // System.out.println(a);
+        //do14();
     }
 
 
@@ -30,5 +32,10 @@ public class StringTest {
         String aa =(a.equals(null)?"":a);
         String bb=(b==null?"":b);
         System.out.println((a==null?"":a)+(b==null?"":b));
+    }
+
+    public static void do14(){
+        char a='x';
+        System.out.println(a+1);
     }
 }
