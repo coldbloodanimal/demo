@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author: Monster
@@ -42,6 +43,16 @@ public class IndexController {
         for (int i = 0; i < people.getPets().size(); i++) {
             redisTemplate.opsForList().set(people.getName(),i,people.getPets().get(i));
         }
+    }
+
+
+    @RequestMapping(value="/redis",method= RequestMethod.POST)
+    public void redis(){
+        People people=new People();
+        people.setName("xiaoming");
+        redisTemplate.opsForValue().set("TOKEN:SESSION_TOKEN:919EBE61-6E80-498C-9F58-761646B263DD",people,604800L, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set("TOKEN:LONGID_TOKEN:OEV5S0TEXD9JXFXS6AN8YADBNYFK",people,604800L, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set("TOKEN:REFRESH_TOKEN:1B0F8583-9D62-4325-ACC5-563152071651",people,2592000L, TimeUnit.SECONDS);
     }
 
 }
