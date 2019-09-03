@@ -4,6 +4,9 @@ import com.example.dto.People;
 import com.example.dto.Pet;
 import com.example.model.KeyValueModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -29,15 +32,43 @@ public class IndexController {
         return redisTemplate.op
     }*/
 
+
+    @Cacheable
     @RequestMapping(value="/post",method= RequestMethod.POST)
     public String post(){
         return RequestMethod.POST.toString();
     }
 
-    @RequestMapping(value="/setValue",method= RequestMethod.POST)
-    public void setValue(@RequestBody KeyValueModel keyValueModel){
+    @Cacheable(cacheNames = "redis")
+    @RequestMapping(value="/setValue/{id}",method= RequestMethod.POST)
+    public void setValueEasy(@RequestBody KeyValueModel keyValueModel){
         stringRedisTemplate.opsForValue().set(keyValueModel.getKey(),keyValueModel.getValue());
     }
+
+
+/*    @CachePut(cacheNames = "redis",key="#kv.id")
+    @RequestMapping(value="/cache/{id}",method= RequestMethod.PUT)
+    public KeyValueModel setValue(@RequestBody KeyValueModel kv){
+        return kv;
+    }
+
+    @Cacheable(cacheNames = "redis",key ="#id")
+    @RequestMapping(value="/cache/{id}",method= RequestMethod.GET)
+    public KeyValueModel getValue(@PathVariable("id") String id){
+        KeyValueModel kv=new KeyValueModel();
+        kv.setId(id);
+        return kv;
+    }
+
+    @CacheEvict(cacheNames = "redis" ,key="#id")
+    @RequestMapping(value="/cache/{id}",method= RequestMethod.DELETE)
+    public String cacheDelete(@PathVariable("id") String id){
+        return "deleted";
+    }*/
+
+
+
+
     @RequestMapping(value="/setList",method= RequestMethod.POST)
     public void setList(@RequestBody People people){
         for (int i = 0; i < people.getPets().size(); i++) {
@@ -50,9 +81,16 @@ public class IndexController {
     public void redis(){
         People people=new People();
         people.setName("xiaoming");
+        stringRedisTemplate.opsForValue().set("TOKEN:SESSION_TOKEN:919EBE61-6E80-498C-9F58-761646B263AA","lala",604800L, TimeUnit.SECONDS);
         redisTemplate.opsForValue().set("TOKEN:SESSION_TOKEN:919EBE61-6E80-498C-9F58-761646B263DD",people,604800L, TimeUnit.SECONDS);
         redisTemplate.opsForValue().set("TOKEN:LONGID_TOKEN:OEV5S0TEXD9JXFXS6AN8YADBNYFK",people,604800L, TimeUnit.SECONDS);
         redisTemplate.opsForValue().set("TOKEN:REFRESH_TOKEN:1B0F8583-9D62-4325-ACC5-563152071651",people,2592000L, TimeUnit.SECONDS);
+
+
+        System.out.println(redisTemplate.opsForValue().get("TOKEN:SESSION_TOKEN:919EBE61-6E80-498C-9F58-761646B263DD"));
+        System.out.println(redisTemplate.opsForValue().get("TOKEN:LONGID_TOKEN:OEV5S0TEXD9JXFXS6AN8YADBNYFK"));
+        System.out.println(redisTemplate.opsForValue().get("TOKEN:REFRESH_TOKEN:1B0F8583-9D62-4325-ACC5-563152071651"));
+
     }
 
 }
