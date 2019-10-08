@@ -77,7 +77,7 @@ public class IndexController {
     }
 
 
-    @RequestMapping(value="/redis",method= RequestMethod.POST)
+    @RequestMapping(value="/redis",method= RequestMethod.GET)
     public void redis(){
         People people=new People();
         people.setName("xiaoming");
@@ -90,6 +90,17 @@ public class IndexController {
         System.out.println(redisTemplate.opsForValue().get("TOKEN:SESSION_TOKEN:919EBE61-6E80-498C-9F58-761646B263DD"));
         System.out.println(redisTemplate.opsForValue().get("TOKEN:LONGID_TOKEN:OEV5S0TEXD9JXFXS6AN8YADBNYFK"));
         System.out.println(redisTemplate.opsForValue().get("TOKEN:REFRESH_TOKEN:1B0F8583-9D62-4325-ACC5-563152071651"));
+
+    }
+
+    @RequestMapping(value="/redisEasyKey",method= RequestMethod.GET)
+    public void redisEasyKey(){
+        People people=new People();
+        people.setName("xiaoming");
+        stringRedisTemplate.opsForValue().set("AABBCCtt","adsfasdf");
+        redisTemplate.opsForValue().set("AABBCC",people,604800L, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set("AABBCCDD",people,604800L, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set("798745",people,2592000L, TimeUnit.SECONDS);
 
     }
 
