@@ -12,4 +12,6 @@ public class Pig implements Animal{
     private String name;
     private int age;
     private int sex;
+
+
 }

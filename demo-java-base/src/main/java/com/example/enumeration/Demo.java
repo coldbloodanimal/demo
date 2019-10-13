@@ -1,10 +1,15 @@
 package com.example.enumeration;
 
+import java.util.concurrent.locks.Condition;
+
 import static com.example.enumeration.PeopleType.BADPEOPLE;
 
 public class Demo {
     public static void main(String[] args) {
-        go1();
+
+       // go1();
+        System.out.print(BADPEOPLE.name());
+        //String.
 
     }
 

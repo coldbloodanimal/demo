@@ -3,6 +3,7 @@ package com.example.users;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface UsersMapper {
@@ -19,6 +20,8 @@ public interface UsersMapper {
     int updateByPrimaryKey(Users record);
 
     List<Users> selectByCondition(UserCriteriaModel criteria);
+
+    List<Map<String,String>> selectMap();
 
 //    IPage<User> selectPageVo(Page page, @Param("state") Integer state);
 

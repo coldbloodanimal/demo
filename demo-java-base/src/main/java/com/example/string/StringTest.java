@@ -6,7 +6,12 @@ package com.example.string;
  **/
 public class StringTest {
     public static void main(String[] args) {
-        String a;
+        System.out.println("dog".hashCode());
+        System.out.println("Aa".hashCode()=="BB".hashCode());
+
+
+        String url="http://img13.360buyimg.com/n0/jfs/t11767/44/118404686/157109/70a5b79d/59e811b5N376f2f0b.jpg";
+        System.out.println(url.substring(url.lastIndexOf("/") + 1));
        // System.out.println(a);
         //do14();
     }

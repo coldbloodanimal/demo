@@ -10,8 +10,15 @@ import java.util.Optional;
  **/
 
 @Data
-public class Dog implements Animal{
+public class Dog implements Animal,Cloneable{
     private String name;
     private int age;
     private int sex;
+
+    @Override
+    public Dog clone() throws CloneNotSupportedException {
+        Dog dog=(Dog)super.clone();
+        return dog;
+    }
+
 }

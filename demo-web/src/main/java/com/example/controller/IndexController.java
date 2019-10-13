@@ -2,9 +2,13 @@ package com.example.controller;
 
 import com.example.dto.People;
 import com.example.exception.RequestException;
+import com.example.model.Man;
+import com.example.service.AnimalService;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -13,6 +17,11 @@ import java.util.logging.Logger;
  **/
 @RestController
 public class IndexController {
+
+
+    //@ConditionalOnExpression
+    AnimalService animalService;
+
     @RequestMapping(value="/get",method= RequestMethod.GET)
     public String get(){
         return RequestMethod.GET.toString();
@@ -40,5 +49,27 @@ public class IndexController {
     @RequestMapping(value="/requestException",method= RequestMethod.POST)
     public String requestException() throws RequestException {
         throw new RequestException();
+    }
+
+    @RequestMapping(value="/speak",method= RequestMethod.GET)
+    public String requestException(@RequestParam String type) throws RequestException {
+        throw new RequestException();
+    }
+
+    @RequestMapping(value="/listAsString",method= RequestMethod.POST)
+    public void requestException(@RequestBody Man man) {
+        System.out.println(man);
+    }
+
+    @RequestMapping(value="/map",method= RequestMethod.POST)
+    public String map(@RequestParam Map<String,Object> map){
+        System.out.println(map);
+        return map.toString();
+    }
+
+    @RequestMapping(value="/map",method= RequestMethod.POST)
+    public String map(@RequestParam Map<String,Object> map){
+        System.out.println(map);
+        return map.toString();
     }
 }

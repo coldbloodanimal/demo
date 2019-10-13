@@ -12,6 +12,8 @@ import java.util.List;
 public class BigDecimalTest {
     public static void main(String[] args) {
 
+        System.out.println(BigDecimal.ZERO.compareTo(new BigDecimal("0.0")));
+
         System.out.println(BigDecimal.TEN.add(new BigDecimal(5)).multiply(new BigDecimal(2)));
 
 

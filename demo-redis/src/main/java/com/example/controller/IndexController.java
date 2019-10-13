@@ -46,29 +46,6 @@ public class IndexController {
     }
 
 
-/*    @CachePut(cacheNames = "redis",key="#kv.id")
-    @RequestMapping(value="/cache/{id}",method= RequestMethod.PUT)
-    public KeyValueModel setValue(@RequestBody KeyValueModel kv){
-        return kv;
-    }
-
-    @Cacheable(cacheNames = "redis",key ="#id")
-    @RequestMapping(value="/cache/{id}",method= RequestMethod.GET)
-    public KeyValueModel getValue(@PathVariable("id") String id){
-        KeyValueModel kv=new KeyValueModel();
-        kv.setId(id);
-        return kv;
-    }
-
-    @CacheEvict(cacheNames = "redis" ,key="#id")
-    @RequestMapping(value="/cache/{id}",method= RequestMethod.DELETE)
-    public String cacheDelete(@PathVariable("id") String id){
-        return "deleted";
-    }*/
-
-
-
-
     @RequestMapping(value="/setList",method= RequestMethod.POST)
     public void setList(@RequestBody People people){
         for (int i = 0; i < people.getPets().size(); i++) {

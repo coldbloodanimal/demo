@@ -94,13 +94,17 @@
             <if test="startTime!=null">
                 and create_date <![CDATA[<]]> #{endTime}
             </if>
-
+            <if test="status!=null">
                 and status in
                 <foreach item="item" index="index" collection="status"
                          open="(" separator="," close=")">
                     #{item}
                 </foreach>
-
+            </if>
         </where>
+    </select>
+
+    <select id="selectMap" resultType="map" >
+        select id,username from users
     </select>
 </mapper>

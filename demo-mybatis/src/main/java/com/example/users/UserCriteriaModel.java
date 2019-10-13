@@ -15,4 +15,6 @@ public class UserCriteriaModel {
     private Date endTime;
 
     private String[] status;
+
+    private String period;
 }

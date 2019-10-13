@@ -8,15 +8,24 @@ import java.util.List;
  * @date: 2019-08-07 11:43
  **/
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         People people=new People();
         List<Animal> list=new ArrayList<>();
 
         List<BadPig> pigList=new ArrayList<>();
         List<Dog> dogList=new ArrayList<>();
-
-        pigList.add(new BadPig());
+        BadPig pig=new BadPig();
+        pigList.add(pig);
         people.setList(pigList);
+
+        People p2=people.clone();
+
+        pig.setName("badpig");
+
+        System.out.println(people.equals(p2));
+
+
+        System.out.println(pig.hashCode());
 
 
     }
