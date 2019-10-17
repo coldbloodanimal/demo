@@ -30,9 +30,9 @@ spring:
       filter:
         stat:
           enabled: true
-mybatis:
-  mapper-locations: "classpath*:mapper/**/*Mapper.xml"
-
+#mybatis:
+#  mapper-locations: "classpath*:mapper/**/*Mapper.xml"
+#  level DEBUG #日志配置DEBUG,INFO,WARN,ERROR
 logging:
   level:
-    root: info #日志配置DEBUG,INFO,WARN,ERROR
+    root: debug
