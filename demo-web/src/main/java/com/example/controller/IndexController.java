@@ -4,7 +4,9 @@ import com.example.dto.People;
 import com.example.exception.RequestException;
 import com.example.model.Man;
 import com.example.service.AnimalService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +21,8 @@ import java.util.logging.Logger;
 public class IndexController {
 
 
+    @Autowired
+    ApplicationContext context;
     //@ConditionalOnExpression
     AnimalService animalService;
 
@@ -67,9 +71,13 @@ public class IndexController {
         return map.toString();
     }
 
-    @RequestMapping(value="/map",method= RequestMethod.POST)
-    public String map(@RequestParam Map<String,Object> map){
-        System.out.println(map);
-        return map.toString();
+
+    @RequestMapping(value="/getBean",method= RequestMethod.GET)
+    public String getBean(@RequestParam("name") String name) throws RequestException {
+        Object object=context.getBean(name);
+        System.out.println(context.getBean(name));
+        return object.getClass().getName();
     }
+
+
 }

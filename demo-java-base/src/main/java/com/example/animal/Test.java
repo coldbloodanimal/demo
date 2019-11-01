@@ -9,8 +9,10 @@ import java.util.List;
  **/
 public class Test {
     public static void main(String[] args) throws CloneNotSupportedException {
+
         People people=new People();
         List<Animal> list=new ArrayList<>();
+
 
         List<BadPig> pigList=new ArrayList<>();
         List<Dog> dogList=new ArrayList<>();

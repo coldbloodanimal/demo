@@ -101,6 +101,17 @@
                     #{item}
                 </foreach>
             </if>
+            <choose>
+                <when test="username != null">
+                    AND username=#{username}
+                </when>
+                <when test="username != ''">
+                    AND username=#{username}
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
         </where>
     </select>
 

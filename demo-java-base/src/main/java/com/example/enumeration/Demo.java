@@ -1,11 +1,14 @@
 package com.example.enumeration;
 
+import com.example.enumeration.inherit.StatusEnum;
+
 import java.util.concurrent.locks.Condition;
 
 import static com.example.enumeration.PeopleType.BADPEOPLE;
 
 public class Demo {
     public static void main(String[] args) {
+        StatusEnum.valueOf("");
 
        // go1();
         System.out.print(BADPEOPLE.name());

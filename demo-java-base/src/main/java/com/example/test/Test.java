@@ -12,6 +12,10 @@ import static java.sql.JDBCType.NULL;
 public class Test {
     public static void main(String[] args) {
 
+        Object o=new Object();
+
+        System.out.print(Double.doubleToLongBits(Math.random()*Long.MAX_VALUE));
+
         System.out.println("\033[30;4mHello,Akina!\033[0m");
         System.out.println("\033[31;4m" + "Hello,Akina!" + "\033[0m");
         System.out.println("\033[32;4m" + "Hello,Akina!" + "\033[0m");

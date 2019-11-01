@@ -1,7 +1,9 @@
 package com.example.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,4 +15,6 @@ public class People {
     private String name;
     private int age;
     private List<Pet> pets;
+    @JsonFormat
+    private Date birthDay;
 }

@@ -10,15 +10,31 @@ import java.util.List;
  * @date: 2019-06-06 13:46
  **/
 public class BigDecimalTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+            BigDecimal a=new BigDecimal("1.0100");
+            BigDecimal b=new BigDecimal("1.11");
+        BigDecimal c=a.divide(b,2,BigDecimal.ROUND_UP);
+            System.out.println(c);
+
+
+
+
+
+    }
+
+    public static void old(){
+        BigDecimal big=new BigDecimal(9.9);
+        big.add(BigDecimal.ZERO).setScale(1,RoundingMode.UP);
+        //big.setScale(0,RoundingMode.UP);
+        System.out.println(big.intValueExact());
 
         System.out.println(BigDecimal.ZERO.compareTo(new BigDecimal("0.0")));
 
         System.out.println(BigDecimal.TEN.add(new BigDecimal(5)).multiply(new BigDecimal(2)));
 
-
-
-
+        BigDecimal v1=new BigDecimal("2.00");
+        BigDecimal rest=v1.subtract(new BigDecimal(v1.longValue()));
     }
 
     public static void test(){

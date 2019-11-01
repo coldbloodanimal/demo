@@ -6,6 +6,10 @@ package com.example.string;
  **/
 public class StringTest {
     public static void main(String[] args) {
+
+        System.out.println(null+"zz");
+        String lala=" adjf aazzz ";
+        System.out.println(lala.trim());
         System.out.println("dog".hashCode());
         System.out.println("Aa".hashCode()=="BB".hashCode());
 
