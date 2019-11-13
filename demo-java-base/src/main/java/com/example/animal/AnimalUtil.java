@@ -46,6 +46,11 @@ public class AnimalUtil {
         return dogs;
     }
 
+
+    public static List<Dog> getEmptyDogs(){
+        return new ArrayList<>();
+    }
+
     public static String getDogName(Dog dog){
         return Optional.ofNullable(dog).map(t->t.getName()).orElse("lala");
     }

@@ -50,4 +50,9 @@ public class UsersController {
         user.setUsername(username);
         return service.selectPage(page,user);
     }
+
+    @RequestMapping(value="/user/delete",method= RequestMethod.GET)
+    public int deleteByUsername(@RequestParam(value = "username",required = false) String username){
+        return service.deleteByUsername(username);
+    }
 }

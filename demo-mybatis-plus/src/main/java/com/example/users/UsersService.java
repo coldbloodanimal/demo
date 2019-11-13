@@ -32,6 +32,15 @@ public class UsersService {
         queryWrapper.like("username",user.getUsername());
         return mapper.selectPage(page,queryWrapper);
     }
+
+
+    int deleteByUsername(String username) {
+        QueryWrapper queryWrapper =new QueryWrapper();
+        //queryWrapper.eq("username","RNXS6NWU5D9Q5Q");
+        queryWrapper.eq("username",username);
+        return mapper.delete(queryWrapper);
+    }
+
 //    List<Users> selectByCondition(UserCriteriaModel criteria) {
 //        return mapper.selectByCondition(criteria);
 //    }

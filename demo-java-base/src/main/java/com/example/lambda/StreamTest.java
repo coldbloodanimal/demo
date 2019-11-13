@@ -4,6 +4,7 @@ import com.example.animal.AnimalUtil;
 import com.example.animal.Dog;
 import com.example.animal.People;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -19,11 +20,13 @@ public class StreamTest {
        // System.out.println(getNameOfDogs(peopleList));
         System.out.println(listToMap(AnimalUtil.getDogs()));
 
-
-
+        List<Dog> dogs=AnimalUtil.getEmptyDogs().stream().limit(3).collect(Collectors.toList());
+        System.out.println(dogs);
         //Map<Long,List<Long>> userCouponIdAndOrderIdList=mallOrderInfoEntityList.stream().collect(Collectors.groupingBy(MallOrderInfoEntity::getUserCouponId, Collectors.mapping(MallOrderInfoEntity::getId,Collectors.toList())));
 
         //使用名称构成数组
+        //List<String> names=dogs.stream().map(Dog::getName).collect(Collectors.toList());
+
         //List<String> names=dogs.stream().map(Dog::getName).collect(Collectors.toList());
     }
 
