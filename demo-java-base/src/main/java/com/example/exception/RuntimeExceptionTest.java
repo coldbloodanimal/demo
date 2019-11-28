@@ -6,6 +6,7 @@ package com.example.exception;
  **/
 public class RuntimeExceptionTest {
     public static void main(String[] args) {
+        System.out.println(null!=null);
         System.out.println("aa");
         doRuntimeException();
         System.out.println("dd");

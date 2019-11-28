@@ -1,6 +1,7 @@
 package com.example.controller;
 
-import com.example.dto.People;
+
+import com.example.animal.People;
 import com.example.model.KeyValueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

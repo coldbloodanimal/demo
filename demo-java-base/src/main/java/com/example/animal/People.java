@@ -10,6 +10,9 @@ import java.util.List;
  **/
 @Data
 public class People implements Cloneable{
+    private String name;
+    private int age;
+    private List<Pet> pets;
     private List<? extends Pig> list;
     private List<Dog> dogs;
     @Override

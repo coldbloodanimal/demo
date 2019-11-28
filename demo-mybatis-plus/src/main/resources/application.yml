@@ -9,6 +9,11 @@ spring:
     url: jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
+
+#    url: jdbc:mysql://192.168.130.32:3306/weimall_1.9.4?characterEncoding=utf8
+#    username: weimall
+#    password: weimall
+
     #    https://github.com/alibaba/druid/blob/master/druid-spring-boot-starter/README.md
     #    例子
     druid:
@@ -33,6 +38,6 @@ spring:
 #mybatis:
 #  mapper-locations: "classpath*:mapper/**/*Mapper.xml"
 #  level DEBUG #日志配置DEBUG,INFO,WARN,ERROR
-logging:
-  level:
-    root: debug
+#logging:
+#  level:
+#    root: debug

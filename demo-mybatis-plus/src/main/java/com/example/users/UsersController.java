@@ -16,7 +16,8 @@ public class UsersController {
 
     @Autowired
     UsersService service;
-
+    @Autowired
+    MergeService mergeService;
 
     @Resource
     UsersMapper usersMapper;
@@ -25,6 +26,12 @@ public class UsersController {
     public Users selectByPrimaryKey(@RequestParam(name = "id") String id) {
         return service.selectByPrimaryKey(id);
     }
+
+    @RequestMapping(value = "/user/selectList", method = RequestMethod.GET)
+    public List<Users> selectList(@RequestParam(name = "username") String username) {
+        return service.selectList(username);
+    }
+
 
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
@@ -54,5 +61,22 @@ public class UsersController {
     @RequestMapping(value="/user/delete",method= RequestMethod.GET)
     public int deleteByUsername(@RequestParam(value = "username",required = false) String username){
         return service.deleteByUsername(username);
+    }
+
+
+    @RequestMapping(value="/addNow",method= RequestMethod.GET)
+    public void addnow(){
+         mergeService.addNow();
+    }
+
+
+    @RequestMapping(value="/addOld",method= RequestMethod.GET)
+    public void addOld(){
+        mergeService.addOld();
+    }
+
+    @RequestMapping(value="/addStatus",method= RequestMethod.GET)
+    public void addStatus(){
+        mergeService.addStatus();
     }
 }

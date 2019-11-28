@@ -16,7 +16,15 @@ public class UsersService {
     UsersMapper mapper;
 
     Users selectByPrimaryKey(String id) {
-        return mapper.selectById(id);
+        Users user=mapper.selectById(id);
+        return user;
+    }
+
+    List<Users> selectList(String username) {
+        QueryWrapper<Users> wrapper=new QueryWrapper<>();
+        wrapper.like("username",username);
+        List<Users> usersList=mapper.selectList(wrapper);
+        return usersList;
     }
 
     Integer getCount(){

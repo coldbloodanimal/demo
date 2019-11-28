@@ -25,10 +25,11 @@ public class OrderServiceImpl {
     String openId="oEV5S0fp7h566wL-O4-Ep_jvNlt4";
     public void creatOrder() throws WxPayException {
         WxPayUnifiedOrderRequest request = WxPayUnifiedOrderRequest.newBuilder()
-                .body("我去")
+                .body("StrangeTest")
                 .totalFee(1)
+                .productId("test")
                 .spbillCreateIp("11.1.11.1")
-                .notifyUrl("111111")
+                .notifyUrl("http://27z716i116.zicp.vip/message")
                 .tradeType(WxPayConstants.TradeType.NATIVE)
                 .openid(openId)
                 .outTradeNo("007")
