@@ -7,6 +7,11 @@ package com.example.thread.threadLocal;
 public class ThreadLocalTest {
     public static void main(String[] args) {
         Thread thread=Thread.currentThread();
+        ThreadLocal threadLocal=new ThreadLocal();
+        Object o=new Object();
+        threadLocal.set(o);
+        Object z=threadLocal.get();
+        System.out.println(z);
 
     }
 }
