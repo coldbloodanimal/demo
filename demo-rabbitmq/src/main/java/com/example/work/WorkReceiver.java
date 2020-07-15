@@ -36,6 +36,9 @@ public class WorkReceiver {
 
 	@RabbitHandler
 	public void receive(String in) throws InterruptedException {
+		System.out.println(Thread.currentThread().getId());
+		System.out.println(Thread.currentThread().getName());
+		System.out.println(Thread.currentThread().getThreadGroup());
 		StopWatch watch = new StopWatch();
 		watch.start();
 		System.out.println("instance " + this.instance + " [x] Received '" + in + "'");

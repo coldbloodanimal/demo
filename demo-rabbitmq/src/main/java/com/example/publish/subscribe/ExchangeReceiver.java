@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.exchange;
+package com.example.publish.subscribe;
 
+import com.example.util.ThreadUtil;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.util.StopWatch;
@@ -29,11 +30,13 @@ public class ExchangeReceiver {
 
 	@RabbitListener(queues = "#{autoDeleteQueue1.name}")
 	public void receive1(String in) throws InterruptedException {
+		ThreadUtil.printThreadInfo();
 		receive(in, 1);
 	}
 
 	@RabbitListener(queues = "#{autoDeleteQueue2.name}")
 	public void receive2(String in) throws InterruptedException {
+		ThreadUtil.printThreadInfo();
 		receive(in, 2);
 	}
 

@@ -9,8 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//
+//public interface UsersService extends IService<Users> {
+//}
+
+
 @Service
-public class UsersService {
+public class UsersService{
     //    此处推测 autowired 可能没有聪明到找到mapper的实现类，所以会害怕mapper是null
     @Autowired(required = false)
     UsersMapper mapper;

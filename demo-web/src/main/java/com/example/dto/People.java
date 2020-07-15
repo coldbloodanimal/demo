@@ -12,6 +12,7 @@ import java.util.List;
  **/
 @Data
 public class People {
+    // 姓名
     private String name;
     private int age;
     private List<Pet> pets;

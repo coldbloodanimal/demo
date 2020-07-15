@@ -25,6 +25,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RequestException.class)
     @ResponseBody
     String handleRequestException(RequestException e){
-        return (e.getClass().getSimpleName());
+        return (e.getMessage());
     }
 }

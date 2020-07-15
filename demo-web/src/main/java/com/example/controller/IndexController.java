@@ -1,11 +1,11 @@
 package com.example.controller;
 
+import com.example.aop.Selele;
 import com.example.dto.People;
 import com.example.exception.RequestException;
 import com.example.model.Man;
 import com.example.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +26,14 @@ public class IndexController {
     //@ConditionalOnExpression
     AnimalService animalService;
 
+    @RequestMapping(value="/{id}",method= RequestMethod.GET)
+    public String getByid(@PathVariable("id")String id){
+        System.out.println(id);
+        return RequestMethod.GET.toString();
+    }
+
+
+    @Selele
     @RequestMapping(value="/get",method= RequestMethod.GET)
     public String get(){
         return RequestMethod.GET.toString();

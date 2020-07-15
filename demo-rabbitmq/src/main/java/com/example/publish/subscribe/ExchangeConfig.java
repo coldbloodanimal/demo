@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.exchange;
+package com.example.publish.subscribe;
 
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
@@ -58,9 +58,9 @@ public class ExchangeConfig {
 		return new ExchangeSender();
 	}
 
-	@Bean
-	public ExchangeReceiver receiver() {
-		return new ExchangeReceiver();
-	}
+//	@Bean
+//	public ExchangeReceiver receiver() {
+//		return new ExchangeReceiver();
+//	}
 
 }

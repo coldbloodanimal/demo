@@ -36,6 +36,7 @@ public class HelloSender {
 	public void send(String message) {
 		message = !StringUtils.isEmpty(message)?message:"Hello World!";
 		this.template.convertAndSend(queue.getName(), message);
+		System.out.println("sender:"+Thread.currentThread().getId());
 	}
 
 }

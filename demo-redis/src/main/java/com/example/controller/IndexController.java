@@ -1,7 +1,8 @@
 package com.example.controller;
 
 
-import com.example.animal.People;
+
+import com.example.dto.People;
 import com.example.model.KeyValueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -63,21 +64,7 @@ public class IndexController {
     }
 
 
-    @RequestMapping(value="/redis",method= RequestMethod.GET)
-    public void redis(){
-        People people=new People();
-        people.setName("xiaoming");
-        stringRedisTemplate.opsForValue().set("TOKEN:SESSION_TOKEN:919EBE61-6E80-498C-9F58-761646B263AA","lala",604800L, TimeUnit.SECONDS);
-        redisTemplate.opsForValue().set("TOKEN:SESSION_TOKEN:919EBE61-6E80-498C-9F58-761646B263DD",people,604800L, TimeUnit.SECONDS);
-        redisTemplate.opsForValue().set("TOKEN:LONGID_TOKEN:OEV5S0TEXD9JXFXS6AN8YADBNYFK",people,604800L, TimeUnit.SECONDS);
-        redisTemplate.opsForValue().set("TOKEN:REFRESH_TOKEN:1B0F8583-9D62-4325-ACC5-563152071651",people,2592000L, TimeUnit.SECONDS);
 
-
-        System.out.println(redisTemplate.opsForValue().get("TOKEN:SESSION_TOKEN:919EBE61-6E80-498C-9F58-761646B263DD"));
-        System.out.println(redisTemplate.opsForValue().get("TOKEN:LONGID_TOKEN:OEV5S0TEXD9JXFXS6AN8YADBNYFK"));
-        System.out.println(redisTemplate.opsForValue().get("TOKEN:REFRESH_TOKEN:1B0F8583-9D62-4325-ACC5-563152071651"));
-
-    }
 
     @RequestMapping(value="/redisEasyKey",method= RequestMethod.GET)
     public void redisEasyKey(){

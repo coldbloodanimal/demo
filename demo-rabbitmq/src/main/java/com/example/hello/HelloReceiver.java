@@ -29,6 +29,7 @@ public class HelloReceiver {
 	@RabbitHandler
 	public void receive(String in) {
 		System.out.println(" [x] Received '" + in + "'");
+		System.out.println("reciver:"+Thread.currentThread().getId());
 	}
 
 }

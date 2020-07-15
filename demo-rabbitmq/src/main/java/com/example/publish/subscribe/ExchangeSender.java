@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.exchange;
+package com.example.publish.subscribe;
 
 import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.Queue;

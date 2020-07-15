@@ -10,4 +10,5 @@ public class DemoMybatisBaomidouApplication {
         SpringApplication.run(DemoMybatisBaomidouApplication.class, args);
     }
 
+
 }
