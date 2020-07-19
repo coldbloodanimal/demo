@@ -24,12 +24,12 @@ import org.springframework.util.StopWatch;
  */
 public class TopicReceiver {
 
-	@RabbitListener(queues = "#{autoDeleteQueue1.name}")
+	@RabbitListener(queues = "orange")
 	public void receive1(String in) throws InterruptedException {
 		receive(in, 1);
 	}
 
-	@RabbitListener(queues = "#{autoDeleteQueue2.name}")
+	@RabbitListener(queues = "lazy-rabbit")
 	public void receive2(String in) throws InterruptedException {
 		receive(in, 2);
 	}
