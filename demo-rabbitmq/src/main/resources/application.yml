@@ -1,13 +1,13 @@
 spring:
   profiles:
-#    active: hello
+    active: hello
 #    active: topic
   #    第六课
    #active: rpc
 
 
 #    第五课
-    active: topic
+#    active: topic
 
 #    第四课
      #     active: routing
@@ -19,4 +19,4 @@ spring:
     #    第一课
 
   rabbitmq:
-    host: localhost
+    host: 113.140.81.69

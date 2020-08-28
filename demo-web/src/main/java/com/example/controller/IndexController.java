@@ -87,5 +87,10 @@ public class IndexController {
         return object.getClass().getName();
     }
 
-
+    @RequestMapping(value="/getPeople",method= RequestMethod.GET)
+    public People getPeople(){
+        People people=new People();
+        people.setLive(true);
+        return people;
+    }
 }

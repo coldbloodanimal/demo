@@ -18,4 +18,5 @@ public class People {
     private List<Pet> pets;
     @JsonFormat
     private Date birthDay;
+    private Boolean live;
 }

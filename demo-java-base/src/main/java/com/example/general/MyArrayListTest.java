@@ -1,5 +1,9 @@
 package com.example.general;
 
+import org.springframework.util.StringUtils;
+
+import java.util.Collections;
+
 /**
  * @author: Monster
  * @date: 2019-07-23 14:41
@@ -10,6 +14,8 @@ public class MyArrayListTest {
         list.add("good");
         list.add("better");
         list.add("best");
+
+        System.out.println(StringUtils.collectionToDelimitedString(list,","));
         System.out.println(list.getSize());
     }
 

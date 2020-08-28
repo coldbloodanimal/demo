@@ -1,9 +1,12 @@
 package com.example.enumeration;
 
+import lombok.Getter;
+
 /**
  * @author: Monster
  * @date: 2019-06-17 20:12
  **/
+@Getter
 public enum SexEnum {
 
     MAN(1,"男"),
@@ -17,13 +20,7 @@ public enum SexEnum {
         this.value = value;
     }
 
-    public Integer getKey() {
-        return key;
-    }
 
-    public String getValue() {
-        return value;
-    }
 
     public static SexEnum getByKey(Integer key){
         for (SexEnum value : SexEnum.values()) {
