@@ -94,7 +94,7 @@
             <if test="startTime!=null">
                 and create_date <![CDATA[<]]> #{endTime}
             </if>
-            <if test="status!=null">
+            <if test="status!=null and status.size()>0">
                 and status in
                 <foreach item="item" index="index" collection="status"
                          open="(" separator="," close=")">
