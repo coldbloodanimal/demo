@@ -26,6 +26,12 @@ public class IndexController {
     //@ConditionalOnExpression
     AnimalService animalService;
 
+
+    @RequestMapping(value="/hello",method= RequestMethod.GET)
+    public String hello(){
+        return "hello world";
+    }
+
     @RequestMapping(value="/{id}",method= RequestMethod.GET)
     public String getByid(@PathVariable("id")String id){
         System.out.println(id);

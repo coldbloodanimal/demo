@@ -11,7 +11,7 @@ import static java.sql.JDBCType.NULL;
  **/
 public class Test {
     public static void main(String[] args) {
-
+        System.out.println(null+"a");
         Object o=new Object();
 
         System.out.print(Double.doubleToLongBits(Math.random()*Long.MAX_VALUE));

@@ -6,6 +6,9 @@ package com.example.test;
  **/
 public class IfTest {
     public static void main(String[] args) {
+
+        System.out.println();
+
         int a=10;
         if(a>2){
             System.out.println(">2");
