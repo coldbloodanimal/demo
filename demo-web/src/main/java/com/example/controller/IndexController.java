@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -29,7 +31,9 @@ public class IndexController {
 
     @RequestMapping(value="/hello",method= RequestMethod.GET)
     public String hello(){
+
         return "hello world";
+
     }
 
     @RequestMapping(value="/{id}",method= RequestMethod.GET)
@@ -80,10 +84,17 @@ public class IndexController {
     }
 
     @RequestMapping(value="/map",method= RequestMethod.POST)
-    public String map(@RequestParam Map<String,Object> map){
+    public String map(@RequestParam Map<String,Object> map, ServletRequest request){
         System.out.println(map);
         return map.toString();
     }
+
+    @RequestMapping(value="/map2",method= RequestMethod.POST)
+    public String map2(@RequestParam Map<String,Object> map){
+        System.out.println(map);
+        return map.toString();
+    }
+
 
 
     @RequestMapping(value="/getBean",method= RequestMethod.GET)

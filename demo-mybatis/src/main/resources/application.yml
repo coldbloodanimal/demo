@@ -8,7 +8,7 @@ spring:
 #    password: root
     url: jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: root
+    password: Dhcc1024
 #    https://github.com/alibaba/druid/blob/master/druid-spring-boot-starter/README.md
 #    例子
     druid:
@@ -35,4 +35,6 @@ mybatis:
 
 logging:
   level:
-    root: info #日志配置DEBUG,INFO,WARN,ERROR
+    root: INFO #日志配置DEBUG,INFO,WARN,ERROR
+server:
+  port: 8083

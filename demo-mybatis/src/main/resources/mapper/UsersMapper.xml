@@ -26,6 +26,62 @@
         values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
         #{createDate,jdbcType=TIMESTAMP})
     </insert>
+    <insert id="insert2" parameterType="java.util.Map">
+        insert into users (id, username)
+        values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="update2" parameterType="java.util.Map">
+        update users
+        set username = #{username,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <insert id="insert3" parameterType="java.util.Map">
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="id != null">
+            id,
+        </if>
+        <if test="username != null">
+            username,
+        </if>
+        <if test="password != null">
+            password,
+        </if>
+        <if test="createDate != null">
+            create_date,
+        </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="id != null">
+            #{id,jdbcType=VARCHAR},
+        </if>
+        <if test="username != null">
+            #{username,jdbcType=VARCHAR},
+        </if>
+        <if test="password != null">
+            #{password,jdbcType=VARCHAR},
+        </if>
+        <if test="createDate != null">
+            #{createDate,jdbcType=TIMESTAMP},
+        </if>
+    </trim>
+</insert>
+
+
+    <insert id="insert4" parameterType="java.util.List">
+        insert into users (id, username)
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.id,jdbcType=BIGINT},
+            #{item.username,jdbcType=BIGINT}
+            )
+        </foreach>
+    </insert>
+
     <insert id="insertSelective" parameterType="com.example.users.Users">
         insert into users
         <trim prefix="(" suffix=")" suffixOverrides=",">

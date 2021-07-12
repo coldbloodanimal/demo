@@ -1,7 +1,9 @@
 package com.example.users;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+@Data
 public class Users {
     private String id;
 
@@ -11,35 +13,7 @@ public class Users {
 
     private Date createDate;
 
-    public String getId() {
-        return id;
-    }
+    private String createUser;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+    private String updateUser;
 }

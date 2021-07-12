@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.ServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -24,6 +25,7 @@ public class TestController {
 
     @RequestMapping(value="/test",method= RequestMethod.GET)
     public void test(){
+
         String result=restTemplate.postForEntity("http://221.226.214.210:8116/hcinterface/v1/hospitalInterface/connection/test",null,String.class).getBody();
         System.out.println(result);
     }

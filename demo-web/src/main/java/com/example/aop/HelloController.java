@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
  * @author: Monster
  * @date: 2019-05-14 17:02
  **/
+@Zila
 @RestController
 public class HelloController {
 
@@ -19,7 +20,7 @@ public class HelloController {
     AnimalService animalService;
 
 
-    @Zila
+
     @Lala
     @Selele
     @RequestMapping(value="/hi",method= RequestMethod.GET)

@@ -8,9 +8,9 @@ import static com.example.enumeration.PeopleType.BADPEOPLE;
 
 public class Demo {
     public static void main(String[] args) {
-        StatusEnum.valueOf("");
+        //StatusEnum.valueOf("");
 
-       // go1();
+       go1();
         System.out.print(BADPEOPLE.name());
         //String.
 

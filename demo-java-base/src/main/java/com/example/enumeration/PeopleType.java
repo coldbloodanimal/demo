@@ -13,4 +13,10 @@ public enum PeopleType {
     }
 
 
+    public static void main(String[] args) {
+        for (PeopleType value : PeopleType.values()) {
+            System.out.print(value.toString());
+            System.out.println(value.getContext());
+        }
+    }
 }

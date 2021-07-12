@@ -6,7 +6,9 @@ package com.example.string;
  **/
 public class StringUtils {
     public static void main(String[] args) {
-        getMapperBeanByEntityName("DsdfEntity");
+        //getMapperBeanByEntityName("DsdfEntity");
+		String a="aaa,bb,cc";
+		System.out.println(a.replace(",",":"));
     }
 
     private static void getMapperBeanByEntityName(String entityClassName) {

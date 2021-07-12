@@ -11,6 +11,14 @@ public interface UsersMapper {
 
     int insert(Users record);
 
+    int insert2(Map<String,Object> map);
+
+    int insert3(Map<String,Object> map);
+
+    int insert4(List<Map<String, Object>> entityList);
+
+    int update2(Map<String,Object> map);
+
     int insertSelective(Users record);
 
     Users selectByPrimaryKey(String id);

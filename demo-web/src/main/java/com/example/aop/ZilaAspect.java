@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class ZilaAspect {
-    @Before("@annotation(Zila)")
+    @Before("@within(Zila)")
     public void doit() {
         System.out.println("zila");
     }

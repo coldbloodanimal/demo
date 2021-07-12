@@ -22,7 +22,5 @@ public class JSONTest {
         //String json=JSON.toJSONString(dog);
         System.out.println(json);
 
-        JSONObject jo=JSON.parseObject(json);
-        System.out.println(jo);
     }
 }

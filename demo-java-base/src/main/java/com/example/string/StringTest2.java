@@ -24,7 +24,17 @@ public class StringTest2 {
         map.put("b1","null");
         map.put("b2","");
         map.put("b3",null);
-
+        System.out.println("b1");
+        System.out.println(map.get("b1"));
+        System.out.println(map.get("b1").getClass().getName());
+        System.out.println("b2");
+        System.out.println(map.get("b2"));
+        System.out.println(map.get("b2").getClass().getName());
+        System.out.println("b3");
+        System.out.println(map.get("b3"));
+        System.out.println(("").equals(map.get("b3")));
+        System.out.println(map.get("b3")==null);
+        System.out.println(map.get("b3").getClass().getName());
         System.out.println("hi");
     }
 }

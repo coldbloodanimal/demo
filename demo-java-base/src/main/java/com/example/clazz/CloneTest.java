@@ -14,6 +14,8 @@ public class CloneTest {
         d.setName("habagou");
 
         Dog dd=d.clone();
+        dd.setName("clonehahagou");
+
         System.out.println(d.getClass().equals(dd.getClass()));
 
     }

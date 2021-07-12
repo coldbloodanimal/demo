@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 
 @RestController
@@ -55,13 +53,43 @@ public class UsersController {
         return  resultMap;
     }
 
-//    @RequestMapping(value="/user/selectPage",method= RequestMethod.GET)
-//    public IPage<Users> selectByPrimaryKey(@RequestParam(value = "username",required = false) String username,
-//                                           @RequestParam(value = "current", defaultValue = "1") Integer current,
-//                                           @RequestParam(value = "size", defaultValue = "10") Integer size){
-//        Page page=new Page(1,10);
-//        Users user=new Users();
-//        user.setUsername(username);
-//        return service.selectPage(page,user);
-//    }
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public void add() {
+        Map<String,Object> map=new HashMap<>();
+        map.put("id",UUID.randomUUID().toString());
+        map.put("username","name:"+Math.random());
+        usersMapper.insert2(map);
+    }
+
+    @RequestMapping(value = "/add3", method = RequestMethod.GET)
+    public void add2() {
+        Map<String,Object> map=new HashMap<>();
+        map.put("id",UUID.randomUUID().toString());
+        map.put("username","name:"+Math.random());
+        usersMapper.insert3(map);
+    }
+
+    @RequestMapping(value = "/add4", method = RequestMethod.GET)
+    public void add4() {
+        List<Map<String, Object>> entityList=new ArrayList<>();
+        Map<String,Object> map=new HashMap<>();
+        map.put("id",UUID.randomUUID().toString());
+        map.put("username","name:"+Math.random());
+
+        Map<String,Object> map2=new HashMap<>();
+        map2.put("id",UUID.randomUUID().toString());
+        map2.put("username","name:"+Math.random());
+
+        entityList.add(map);
+        entityList.add(map2);
+        usersMapper.insert4(entityList);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public void update() {
+        Map<String,Object> map=new HashMap<>();
+        map.put("id","1");
+        map.put("username","update_user");
+        usersMapper.update2(map);
+    }
 }
