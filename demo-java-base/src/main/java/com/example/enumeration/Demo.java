@@ -10,8 +10,9 @@ public class Demo {
     public static void main(String[] args) {
         //StatusEnum.valueOf("");
 
-       go1();
-        System.out.print(BADPEOPLE.name());
+    //   go1();
+        System.out.print(BADPEOPLE);
+        System.out.print(BADPEOPLE.toString());
         //String.
 
     }

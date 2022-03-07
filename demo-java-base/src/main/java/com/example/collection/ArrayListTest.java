@@ -15,10 +15,11 @@ import java.util.List;
  **/
 public class ArrayListTest {
     public static void main(String[] args) {
-        baddelete2();
+      //  baddelete2();
 
         //goodDelete();
-
+        List<Integer> list=new ArrayList();
+        System.out.println(list.get(0));
 
 
 

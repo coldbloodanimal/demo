@@ -7,6 +7,8 @@ import com.example.model.Man;
 import com.example.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletRequest;
@@ -19,6 +21,7 @@ import java.util.logging.Logger;
  * @author: Monster
  * @date: 2019-05-14 17:02
  **/
+@CrossOrigin(origins = "*")
 @RestController
 public class IndexController {
 
@@ -28,12 +31,28 @@ public class IndexController {
     //@ConditionalOnExpression
     AnimalService animalService;
 
+	@RequestMapping("/freemarker2")
+	public String testFreemarker(){
+		//modelMap.addAttribute("msg", "Hello dalaoyang , this is freemarker");
+		return "freemarker2";
+	}
+
+	@RequestMapping("/freemarker3")
+	public String freemarker3(){
+		//modelMap.addAttribute("msg", "Hello dalaoyang , this is freemarker");
+		return "freemarker3";
+	}
+
+    @RequestMapping(value="/ajax",method= RequestMethod.GET)
+    public String ajax(@RequestParam(value = "value",required = false) String value) throws InterruptedException {
+        Thread.sleep(2000);
+        String v=ObjectUtils.isEmpty(value)?"":value;
+        return "hello"+ v;
+    }
 
     @RequestMapping(value="/hello",method= RequestMethod.GET)
     public String hello(){
-
         return "hello world";
-
     }
 
     @RequestMapping(value="/{id}",method= RequestMethod.GET)

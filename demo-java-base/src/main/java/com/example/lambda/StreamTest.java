@@ -4,11 +4,10 @@ import com.example.animal.AnimalUtil;
 import com.example.animal.Dog;
 import com.example.animal.People;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 /**
  * @author: Monster
@@ -21,8 +20,10 @@ public class StreamTest {
 		String e = dogs.get(r.nextInt(dogs.size())).getName();
 		System.out.println(e);
 		//System.out.println(AnimalUtil.getDogs().stream().map(p->p.getName()).f.get());
-		//List<People> peopleList=AnimalUtil.getPeople();
-		// System.out.println(getNameOfDogs(peopleList));
+		List<People> peopleList=AnimalUtil.getPeople();
+//		peopleList.stream()
+//				.flatMap(p->p.getDogs().stream().map(d->d.getName()).collect(Collectors.toSet())).collect(Collectors.toSet());
+//		// System.out.println(getNameOfDogs(peopleList));
 		System.out.println(listToMap(AnimalUtil.getDogs()));
 
 		// List<Dog> dogs=AnimalUtil.getEmptyDogs().stream().limit(3).collect(Collectors.toList());
@@ -33,6 +34,21 @@ public class StreamTest {
 		//List<String> names=dogs.stream().map(Dog::getName).collect(Collectors.toList());
 
 		//List<String> names=dogs.stream().map(Dog::getName).collect(Collectors.toList());
+
+
+
+		Map<Integer, List<Integer>> namesByCity
+				= dogs.stream().collect(groupingBy(Dog::getSex,
+				mapping(Dog::getAge, toList())));
+
+		Map<Integer, List<Integer>> aa
+				= dogs.stream().collect(groupingBy(p->p.getSex(),
+				mapping(p->p.getAge(), toList())));
+
+
+		Map<Integer, Map<String,Object>> bb
+				= dogs.stream().collect(groupingBy(p->p.getSex(),
+				Collectors.toMap(p->p.getName(),p->p)));
 	}
 
 	/**

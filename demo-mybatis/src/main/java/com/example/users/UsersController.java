@@ -19,6 +19,7 @@ public class UsersController {
 
     @RequestMapping(value = "/user/selectById", method = RequestMethod.GET)
     public Users selectByPrimaryKey(@RequestParam(name = "id") String id) {
+
         return service.selectByPrimaryKey(id);
     }
 

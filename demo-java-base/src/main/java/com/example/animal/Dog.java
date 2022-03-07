@@ -17,6 +17,7 @@ public class Dog implements Animal,Cloneable{
     private int age;
     private int sex;
     private boolean real;
+    private int location;
     @Override
     public Dog clone() throws CloneNotSupportedException {
         Dog dog=(Dog)super.clone();

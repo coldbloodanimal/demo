@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapTest {
+public class MapTest  implements Banana {
 	public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
 		Map<String,Object> map=new HashMap<>();
 		Method[] methods=map.getClass().getMethods();

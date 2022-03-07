@@ -2,7 +2,7 @@ package com.example.reflection;
 
 import java.util.Set;
 
-public class GetClassOfPackage {
+public class GetClassOfPackage implements Banana {
 	public static void main(String[] args) {
 
 //		Reflections reflections = new Reflections("my.project.prefix");

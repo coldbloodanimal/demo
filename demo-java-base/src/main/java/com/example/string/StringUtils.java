@@ -7,8 +7,8 @@ package com.example.string;
 public class StringUtils {
     public static void main(String[] args) {
         //getMapperBeanByEntityName("DsdfEntity");
-		String a="aaa,bb,cc";
-		System.out.println(a.replace(",",":"));
+		String a="http://192.144.144.119:9000/ecs/upLoad/sup/0/cert/hos_logistics/118/138249963590656.keystore";
+		System.out.println(a.replace("http://192.144.144.119:9000/ecs/",""));
     }
 
     private static void getMapperBeanByEntityName(String entityClassName) {

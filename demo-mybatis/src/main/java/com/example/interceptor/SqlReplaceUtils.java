@@ -18,7 +18,6 @@ import net.sf.jsqlparser.statement.update.Update;
 
 public class SqlReplaceUtils {
 	public static void main(String[] args) throws JSQLParserException {
-
 		insert();
 	}
 

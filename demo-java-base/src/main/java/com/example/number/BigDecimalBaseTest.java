@@ -5,8 +5,9 @@ import java.math.BigDecimal;
 public class BigDecimalBaseTest {
     public static void main(String[] args) {
         BigDecimal a=BigDecimal.ONE;
-        BigDecimal b=new BigDecimal(3);
+        BigDecimal b=new BigDecimal(3.14);
 
+        System.out.println(b.intValue());
         //加
         System.out.println(a.add(b));
         //减
