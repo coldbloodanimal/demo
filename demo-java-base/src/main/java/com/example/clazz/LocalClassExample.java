@@ -1,5 +1,7 @@
 package com.example.clazz;
 
+import org.springframework.util.ObjectUtils;
+
 public class LocalClassExample {
 
 	static String regularExpression = "[^0-9]";
@@ -57,6 +59,6 @@ public class LocalClassExample {
 	}
 
 	public static void main(String... args) {
-		validatePhoneNumber("123-456-7890", "456-7890");
+		System.out.println(ObjectUtils.isEmpty(args[0]));
 	}
 }

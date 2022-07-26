@@ -6,7 +6,6 @@ public class BigDecimalDivide {
     public static void main(String[] args) {
         BigDecimal Dividend = new BigDecimal("1");
         BigDecimal divisor = new BigDecimal("3");
-
         BigDecimal res1 = Dividend.divide(divisor,3,BigDecimal.ROUND_UP);
         System.out.println("除法ROUND_UP："+res1);
         BigDecimal res2 = Dividend.divide(divisor,3,BigDecimal.ROUND_DOWN);

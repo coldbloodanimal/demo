@@ -1,5 +1,11 @@
 package com.example.test;
 
+import org.springframework.util.ObjectUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author: Monster
  * @date: 2019-11-19 09:29
@@ -7,6 +13,9 @@ package com.example.test;
 public class IfTest {
     public static void main(String[] args) {
 
+        List<String> ll=new ArrayList<>();
+        ll.add(null);
+        System.out.println(ll.stream().filter(p-> !ObjectUtils.isEmpty(p)).collect(Collectors.joining(",")));
         if(null==null){
             System.out.println("lala:"+true);
         }

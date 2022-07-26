@@ -1,6 +1,7 @@
 package com.example;
 
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -10,10 +11,13 @@ import org.apache.log4j.Logger;
 public class LogTest {
     static Logger logger=Logger.getLogger(LogTest.class);
     public static void main(String[] args) {
-    	String username="world";
-		logger.info("hi");
-		logger.error("error");
+//    	String username="world";
+//		logger.info("hi");
+//		logger.error("error");
 	//	logger.error("hello,{}!",username);
+
+        do1();
+
 
     }
 
@@ -22,13 +26,14 @@ public class LogTest {
         System.out.println(Boolean.TRUE.toString());
         System.out.println(Boolean.TRUE.toString().equals("true"));
 //        Logger logger = Logger.ROOT_LOGGER_NAME;
-//        //Logger logger=new Logger();
-//        logger.trace("trace level");
-//        logger.debug("debug level");
-//        logger.info("info level");
-//        logger.warn("warn level");
-//        logger.error("error level");
-        // logger.fatal("fatal level");
+        Logger logger=Logger.getRootLogger();
+        logger.setLevel(Level.INFO);
+        logger.trace("trace level");
+        logger.debug("debug level");
+        logger.info("info level");
+        logger.warn("warn level");
+        logger.error("error level");
+         logger.fatal("fatal level");
     }
 
     public static void do2(){

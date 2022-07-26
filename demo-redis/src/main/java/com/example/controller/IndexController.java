@@ -2,10 +2,10 @@ package com.example.controller;
 
 
 
-import com.example.dto.People;
+//import com.example.dto.People;
 import com.example.model.KeyValueModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
+//import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.ObjectUtils;
@@ -43,38 +43,38 @@ public class IndexController {
     }
 
 
-    @Cacheable
-    @RequestMapping(value="/post",method= RequestMethod.POST)
-    public String post(){
-        return RequestMethod.POST.toString();
-    }
-
-    @Cacheable(cacheNames = "redis")
-    @RequestMapping(value="/setValue/{id}",method= RequestMethod.POST)
-    public void setValueEasy(@RequestBody KeyValueModel keyValueModel){
-        stringRedisTemplate.opsForValue().set(keyValueModel.getKey(),keyValueModel.getValue());
-    }
-
-
-    @RequestMapping(value="/setList",method= RequestMethod.POST)
-    public void setList(@RequestBody People people){
-        for (int i = 0; i < people.getPets().size(); i++) {
-            redisTemplate.opsForList().set(people.getName(),i,people.getPets().get(i));
-        }
-    }
-
-
+//    @Cacheable
+//    @RequestMapping(value="/post",method= RequestMethod.POST)
+//    public String post(){
+//        return RequestMethod.POST.toString();
+//    }
+//
+//    @Cacheable(cacheNames = "redis")
+//    @RequestMapping(value="/setValue/{id}",method= RequestMethod.POST)
+//    public void setValueEasy(@RequestBody KeyValueModel keyValueModel){
+//        stringRedisTemplate.opsForValue().set(keyValueModel.getKey(),keyValueModel.getValue());
+//    }
+//
+//
+//    @RequestMapping(value="/setList",method= RequestMethod.POST)
+//    public void setList(@RequestBody People people){
+//        for (int i = 0; i < people.getPets().size(); i++) {
+//            redisTemplate.opsForList().set(people.getName(),i,people.getPets().get(i));
+//        }
+//    }
 
 
-    @RequestMapping(value="/redisEasyKey",method= RequestMethod.GET)
-    public void redisEasyKey(){
-        People people=new People();
-        people.setName("xiaoming");
-        stringRedisTemplate.opsForValue().set("AABBCCtt","adsfasdf");
-        redisTemplate.opsForValue().set("AABBCC",people,604800L, TimeUnit.SECONDS);
-        redisTemplate.opsForValue().set("AABBCCDD",people,604800L, TimeUnit.SECONDS);
-        redisTemplate.opsForValue().set("798745",people,2592000L, TimeUnit.SECONDS);
 
-    }
+
+//    @RequestMapping(value="/redisEasyKey",method= RequestMethod.GET)
+//    public void redisEasyKey(){
+//        People people=new People();
+//        people.setName("xiaoming");
+//        stringRedisTemplate.opsForValue().set("AABBCCtt","adsfasdf");
+//        redisTemplate.opsForValue().set("AABBCC",people,604800L, TimeUnit.SECONDS);
+//        redisTemplate.opsForValue().set("AABBCCDD",people,604800L, TimeUnit.SECONDS);
+//        redisTemplate.opsForValue().set("798745",people,2592000L, TimeUnit.SECONDS);
+//
+//    }
 
 }

@@ -32,7 +32,8 @@ public class LambdaTest {
 	}
 
 	public static void do1() {
-		MyLambdaInterface mm=(s)->System.out.println(s);
+		MyLambdaInterface mm=
+				(s)->System.out.println(s);
 		mm.e("adfsdf");
 	}
 }
