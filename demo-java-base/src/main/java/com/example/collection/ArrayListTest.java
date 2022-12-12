@@ -8,6 +8,7 @@ import com.example.animal.Pig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author: Monster
@@ -18,10 +19,9 @@ public class ArrayListTest {
       //  baddelete2();
 
         //goodDelete();
-        List<Integer> list=new ArrayList();
-        System.out.println(list.get(0));
+        List<String> list=new ArrayList();
 
-
+        System.out.println(list.stream().collect(Collectors.joining()));
 
     }
 

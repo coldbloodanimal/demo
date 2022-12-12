@@ -3,6 +3,9 @@ package com.example.test;
 import lombok.val;
 import org.springframework.util.StringUtils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static java.sql.JDBCType.NULL;
 
 /**
@@ -11,6 +14,11 @@ import static java.sql.JDBCType.NULL;
  **/
 public class Test {
     public static void main(String[] args) {
+
+        Map<String,Object> lala=new HashMap<>();
+        lala.put("aa",new Integer(1));
+        System.out.println(lala);
+
         System.out.println(null+"a");
         Object o=new Object();
 

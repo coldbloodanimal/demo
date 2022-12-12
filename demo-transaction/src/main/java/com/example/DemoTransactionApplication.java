@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.users.PropagationService;
 import com.example.users.Users;
 import com.example.users.UsersMapper;
 import com.example.users.UsersService;
@@ -23,6 +24,7 @@ public class DemoTransactionApplication {
         return args -> {
             UsersMapper usersMapper = (UsersMapper) ctx.getBean("usersMapper");
             UsersService usersService = (UsersService) ctx.getBean("usersService");
+            PropagationService propagationService= (PropagationService) ctx.getBean("propagationService");
             //推测，此时应该是对象初始化阶段，还没有开始组装，所以service中的mapper是空的，
             usersService.setMapper(usersMapper);
 /***
@@ -38,41 +40,45 @@ public class DemoTransactionApplication {
             //清空历史数据
             usersService.cleanData();
 
-            //下面方法会抛出异常，但是我们不想要线程终止，所以try catch，为了执行后续代码
+           // propagationService.outerInsert();
 
-            usersService.insert1(Users.getGoodUser(), Users.getGoodUser());
+            propagationService.insert1();
 
-            try {
-                usersService.insert2(Users.getGoodUser(), Users.getBadUser());
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
-            //方法会抛出异常，但是我们不想要线程终止，所以try catch，为了执行后续代码
-            try {
-                usersService.insert3(Users.getGoodUser(), Users.getBadUser());
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
-
-            usersService.insert4(Users.getGoodUser(), Users.getBadUser());
-
-            try {
-                usersService.insert5(Users.getGoodUser(), Users.getBadUser());
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
-
-            try {
-                usersService.insert6(Users.getGoodUser(), Users.getBadUser());
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
-
-            try {
-                usersService.insert7(Users.getGoodUser(), Users.getBadUser());
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
+//            //下面方法会抛出异常，但是我们不想要线程终止，所以try catch，为了执行后续代码
+//
+//            usersService.insert1(Users.getGoodUser(), Users.getGoodUser());
+//
+//            try {
+//                usersService.insert2(Users.getGoodUser(), Users.getBadUser());
+//            } catch (Exception e) {
+//                log.error(e.getMessage());
+//            }
+//            //方法会抛出异常，但是我们不想要线程终止，所以try catch，为了执行后续代码
+//            try {
+//                usersService.insert3(Users.getGoodUser(), Users.getBadUser());
+//            } catch (Exception e) {
+//                log.error(e.getMessage());
+//            }
+//
+//            usersService.insert4(Users.getGoodUser(), Users.getBadUser());
+//
+//            try {
+//                usersService.insert5(Users.getGoodUser(), Users.getBadUser());
+//            } catch (Exception e) {
+//                log.error(e.getMessage());
+//            }
+//
+//            try {
+//                usersService.insert6(Users.getGoodUser(), Users.getBadUser());
+//            } catch (Exception e) {
+//                log.error(e.getMessage());
+//            }
+//
+//            try {
+//                usersService.insert7(Users.getGoodUser(), Users.getBadUser());
+//            } catch (Exception e) {
+//                log.error(e.getMessage());
+//            }
 
         };
     }

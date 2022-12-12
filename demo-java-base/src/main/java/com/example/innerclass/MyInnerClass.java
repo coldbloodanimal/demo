@@ -25,5 +25,4 @@ public class MyInnerClass {
         myInnerClass.doit();
     }
 
-
 }

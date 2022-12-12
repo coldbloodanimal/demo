@@ -32,7 +32,15 @@ spring:
           enabled: true
 mybatis:
   mapper-locations: "classpath*:mapper/**/*Mapper.xml"
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 logging:
   level:
-    root: info #日志配置DEBUG,INFO,WARN,ERROR
+    root: INFO #日志配置DEBUG,INFO,WARN,ERROR
+
+    org:
+      springframework:
+        jdbc:
+          datasource:
+            DataSourceTransactionManager: DEBUG

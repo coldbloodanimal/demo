@@ -34,16 +34,17 @@ public class AnimalUtil {
     }
 
     public static List<Dog> getDogs(){
-        String[] names={"aaa","bbb","ccc","ccc","ddd"};
-        int[] ages={9,5,2,4,5};
-        List<Dog> dogs=new ArrayList<>();
-        for(int i=0;i< names.length;i++){
-            Dog dog=new Dog();
-            dog.setName(names[i]);
-            dog.setAge(ages[i]);
-            dogs.add(dog);
-        }
-        return dogs;
+//        String[] names={"aaa","bbb","ccc","ccc","ddd"};
+//        int[] ages={9,5,2,4,5};
+//        List<Dog> dogs=new ArrayList<>();
+//        for(int i=0;i< names.length;i++){
+//            Dog dog=new Dog();
+//            dog.setName(names[i]);
+//            dog.setAge(ages[i]);
+//            dogs.add(dog);
+//        }
+//        return dogs;
+        return null;
     }
 
 
@@ -51,9 +52,9 @@ public class AnimalUtil {
         return new ArrayList<>();
     }
 
-    public static String getDogName(Dog dog){
-        return Optional.ofNullable(dog).map(t->t.getName()).orElse("lala");
-    }
+//    public static String getDogName(Dog dog){
+//        return Optional.ofNullable(dog).map(t->t.getName()).orElse("lala");
+//    }
 
 
     //人生成器
