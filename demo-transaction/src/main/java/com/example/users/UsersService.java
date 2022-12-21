@@ -4,6 +4,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -153,6 +154,43 @@ public class UsersService {
         }
     }
 
+
+    /**
+     * 8~9嵌套事务
+     * */
+    @Transactional
+    public void insert8() throws Exception {
+        try{
+
+            insert9();
+            Users user1=Users.getGoodUser();
+            user1.setPassword("方法8");
+            mapper.insert(user1);
+
+            throwException();
+            log.info(user1.toString());
+        }catch (Exception e){
+            log.error("方法8出错");
+            log.error(e.getMessage());
+            throwException();
+        }
+    }
+
+    /**
+     * 8~9嵌套事务
+     * */
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void insert9() throws Exception {
+        try{
+            Users user1=Users.getGoodUser();
+            user1.setPassword("方法9");
+            log.info(user1.toString());
+        }catch (Exception e){
+            log.error("方法9出错");
+            log.error(e.getMessage());
+            throwException();
+        }
+    }
 
     public void cleanData(){
         List<Map<String,String>> list=mapper.selectMap();

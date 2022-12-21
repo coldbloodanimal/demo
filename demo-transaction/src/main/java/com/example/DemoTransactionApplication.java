@@ -26,7 +26,8 @@ public class DemoTransactionApplication {
             UsersService usersService = (UsersService) ctx.getBean("usersService");
             PropagationService propagationService= (PropagationService) ctx.getBean("propagationService");
             //推测，此时应该是对象初始化阶段，还没有开始组装，所以service中的mapper是空的，
-            usersService.setMapper(usersMapper);
+            //usersService.setMapper(usersMapper);
+            propagationService.outerInsert();
 /***
  * 这里主要测试异常和事务的几种关系
  * 1.添加事务，正常数据                                                      正常
