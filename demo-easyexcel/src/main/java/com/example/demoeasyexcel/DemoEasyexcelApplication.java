@@ -27,7 +27,7 @@ public class DemoEasyexcelApplication {
 
         List<OrderDto> demoDataList = orderService.getOrderList();
         WriteSheet writeSheet = EasyExcel.writerSheet("模板1").head(OrderDto.class)
-                .registerWriteHandler(new GroupByIdMergeStrategy<OrderDto>(demoDataList,"orderNo", 1,0,1))
+                .registerWriteHandler(new GroupByIdMergeStrategy<>(demoDataList,"orderNo", 1,0,1))
                 .build();
         excelWriter.write(demoDataList, writeSheet);
         excelWriter.finish();

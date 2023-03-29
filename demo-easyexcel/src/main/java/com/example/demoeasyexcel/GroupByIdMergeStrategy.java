@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 主从结构的数据展示在一个表格时候，通过id合并主体信息
  *
  * 特别鸣谢：
  * https://www.cnblogs.com/monianxd/p/16359369.html 提供了如何使用easyexcel合并
@@ -42,16 +43,16 @@ public class GroupByIdMergeStrategy<T> extends AbstractMergeStrategy {
 
     /**
      *
-     * @param dataList
-     * @param idName
-     * @param titleHeight
-     * @param startCellIndex
-     * @param endCellIndex
+     * @param dataList 要处理的数据
+     * @param idName 主体信息id，主体信息合并依据
+     * @param titleHeight 标题高度
+     * @param startColumnIndex 开始合并的列
+     * @param endColumnIndex 结束合并的列
      */
-    public GroupByIdMergeStrategy(List<T> dataList, String idName, Integer titleHeight, Integer startCellIndex, Integer endCellIndex) {
+    public GroupByIdMergeStrategy(List<T> dataList, String idName, Integer titleHeight, Integer startColumnIndex, Integer endColumnIndex) {
         this.idName=idName;
-        this.startColumnIndex = startCellIndex;
-        this.endColumnIndex = endCellIndex;
+        this.startColumnIndex = startColumnIndex;
+        this.endColumnIndex = endColumnIndex;
         this.titleHeight = titleHeight;
         this.dataList=dataList;
         this.cellRangeAddressMap=caculateCellRangeAddress(dataList);

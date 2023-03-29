@@ -21,7 +21,7 @@ public class IndexController {
 	@Autowired
 	private ServletWebServerApplicationContext webServerAppCtxt;
 
-	@Resource(type = Animal.class)
+	@Resource(type = Dog.class)
 	Animal animal;
 
 	@RequestMapping("/speak")
